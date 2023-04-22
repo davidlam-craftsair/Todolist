@@ -39,12 +39,17 @@ function TaskApp() {
     }));
   }
 
+  function handleDeleteTask(taskId) {
+    setTasks(tasks.filter((t) => t.id !== taskId))
+  }
+
   return (
     <>
       <h1>Prague Itinerary</h1>
       <AddTask onAddTask={handleAddTask} />
       <TaskList tasks={tasks}
         onTaskPropChanged={handleTaskPropChange}
+        onTaskDeleted={handleDeleteTask}
       />
     </>
   )

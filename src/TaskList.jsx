@@ -7,7 +7,8 @@ export default function TaskList({ tasks, onTaskPropChanged, onTaskDeleted }) {
       <ol>
         {tasks.map((t, index) => {
           return <li key={index}>
-            <label>{t.taskName}</label>
+            <button onClick={() => onTaskDeleted(t.id)} style={{ width: "0.5em", height: "0.5em" }}></button>
+            <label className="taskLabel">{t.taskName}</label>
             <input type='checkbox' checked={t.done} onChange={() => onTaskPropChanged(t)}></input>
           </li>
         })}
